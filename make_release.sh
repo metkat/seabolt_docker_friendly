@@ -10,7 +10,7 @@ cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=dist  ..
 EXIT_STATUS=$?
 if [ "${EXIT_STATUS}" -eq "0" ]
 then
-    cmake --build . --target install
+    cmake --build . --target package
     EXIT_STATUS=$?
 fi
 popd 1> /dev/null
