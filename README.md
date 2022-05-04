@@ -3,6 +3,13 @@
 Seabolt is the C Connector Library for Neo4j.
 The library supports multiple versions of the Bolt protocol through the new _Connector API_ and will provide a base layer for a number of language drivers.
 
+## Building Debian package for installation elsewhere
+```
+docker run --rm -v "$(pwd):/seabolt" $(docker build -q .) /seabolt/make_release.sh
+```
+creates package file in build/dist_package
+
+
 ## Installing from packages
 
 ### Linux (Ubuntu)
