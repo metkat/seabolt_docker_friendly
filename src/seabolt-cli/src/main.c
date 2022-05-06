@@ -150,12 +150,14 @@ struct Application* app_create(int argc, char** argv)
     int valid_config = strcmp(BOLT_CONFIG_ROUTING, "")!=0 && strcmp(BOLT_CONFIG_ACCESS_MODE, "")!=0
             && strcmp(BOLT_CONFIG_SECURE, "")!=0 && strcmp(BOLT_CONFIG_HOST, "")!=0 && strcmp(BOLT_CONFIG_PORT, "")!=0;
     if (!valid_config) {
+        fprintf(stderr, "exiting because invalid config (BOLT_CONFIG_HOST, BOLT_CONFIG_PORT, etc)\n");
         app_help();
         exit(EXIT_FAILURE);
     }
 
     // Verify password is provided when user is set
     if (strcmp(BOLT_CONFIG_USER, "")!=0 && (BOLT_CONFIG_PASSWORD==NULL || strcmp(BOLT_CONFIG_PASSWORD, "")==0)) {
+        fprintf(stderr, "exiting because user set but password not set\n");
         app_help();
         exit(EXIT_FAILURE);
     }
