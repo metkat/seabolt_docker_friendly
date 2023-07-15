@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.2
 
 RUN apt-get update && apt-get upgrade -yqq 
 RUN apt install  -yqq git build-essential cmake libssl-dev
